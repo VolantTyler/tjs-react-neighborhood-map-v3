@@ -12,14 +12,20 @@ class App extends Component {
       markers: [],
       center: [],
       zoom: 12
-    }
+    };
   }
+
+  handleMarkerClick = (marker) => {
+    marker.isOpen = true;
+    this.setState({markers: Object.assign(this.state.markers, marker)});
+  };
 
   componentDidMount() {
     SquareAPI.search({
       near: "Ridgewood, NJ",
-      query: "burgers",
+      query: "burger",
       limit: 20,
+      // intent: "browse",
       // radius: 250
     })
     .then(results => {
@@ -43,6 +49,7 @@ class App extends Component {
       <div className="App">
         <Map 
           {...this.state}
+          handleMarkerClick = {this.handleMarkerClick}
         />
       </div>
     );
