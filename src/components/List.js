@@ -5,12 +5,19 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
-            query: ''
+            query: '',
+            venues: []
         }
     }
 
     handleFilterVenues = () => {
-
+        if (this.state.query.trim() !== "") {
+            const venues = this.props.venues.filter(venue =>
+                venue.name.toLowerCase().includes(this.state.query.toLowerCase())
+                );
+            return venues;
+        }
+        return this.props.venues;
     }
   handleChange = e => {
     this.setState({query:e.target.value});
@@ -28,6 +35,7 @@ class List extends React.Component {
     });
     this.props.updateSuperState({markers});
   };
+
     render() {
         const style = {
             width: '20vw',
