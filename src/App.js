@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from "./components/Map";
 import SquareAPI from "./API/";
+import NavBar from "./components/NavBar"
 
 class App extends Component {
 
@@ -62,9 +63,18 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      //width: '100vw',
+      height: '100vh',
+      top: '60px'
+    }
+
     return (
       <div className="App">
+        <NavBar />
         <Map 
+          style={style}
           {...this.state}
           handleMarkerClick = {this.handleMarkerClick}
         />
