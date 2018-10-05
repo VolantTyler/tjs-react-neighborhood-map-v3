@@ -16,7 +16,7 @@ class ListItem extends Component {
             //     {this.props.venue.name}
             // </li>
             <div>
-                <p>Location Name</p>
+              {this.props.name}
             </div>
         )
     }

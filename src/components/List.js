@@ -12,7 +12,12 @@ class List extends React.Component {
       return (
             <div className='side-list' >
                 <input id='search-input' placeholder='Search Here'></input>
-                <ListItem />
+                {this.props.venues && this.props.venues.map((venue, idx) => 
+                <ListItem 
+                    key={idx}
+                    {...venue}
+                />
+                )}
             </div>
       )
     }

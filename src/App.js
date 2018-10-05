@@ -72,7 +72,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NavBar />
+        <NavBar {...this.state} />
         <Map 
           style={style}
           {...this.state}
