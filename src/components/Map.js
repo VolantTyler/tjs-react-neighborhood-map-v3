@@ -22,7 +22,7 @@ const MyMapComponent = withScriptjs(withGoogleMap(props =>(
                 {marker.isOpen && venueInfo.bestPhoto && (
                 <InfoWindow>
                     <React.Fragment>
-                        <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={"Venue Image"}/>
+                        <img src={`${venueInfo.bestPhoto.prefix}300x300${venueInfo.bestPhoto.suffix}`} alt={"Venue Image"}/>
                     <p>{venueInfo.name}</p>
                     </React.Fragment>
                 </InfoWindow>)}
