@@ -16,6 +16,7 @@ class List extends React.Component {
                 <ListItem 
                     key={idx}
                     {...venue}
+                    handleListItemClick={this.props.handleListItemClick}
                 />
                 )}
             </div>

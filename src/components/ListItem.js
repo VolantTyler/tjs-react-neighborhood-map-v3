@@ -15,7 +15,7 @@ class ListItem extends Component {
             // onClick={() => this.itemClick(this.props.venue)}>
             //     {this.props.venue.name}
             // </li>
-            <div className='list-item'>
+            <div className='list-item' onClick={() => this.props.handleListItemClick(this.props)}>
               {this.props.name}
             </div>
         )

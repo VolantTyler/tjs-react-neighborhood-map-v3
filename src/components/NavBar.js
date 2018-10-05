@@ -25,7 +25,10 @@ export default class Example extends React.Component {
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
-                <List {...this.props}/>
+                <List 
+                {...this.props}
+                handleListItemClick = {this.props.handleListItemClick}
+                />
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
