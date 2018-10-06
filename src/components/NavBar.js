@@ -17,6 +17,7 @@ export default class Example extends React.Component {
   toggleNavbar() {
     this.setState({
       collapsed: !this.state.collapsed
+      //TODO: close the list on escape
       //TODO: when list item is clicked, invoke this to close navbar
     });
   }
