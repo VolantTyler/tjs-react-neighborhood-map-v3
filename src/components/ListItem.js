@@ -16,7 +16,6 @@ class ListItem extends Component {
             //     {this.props.venue.name}
             // </li>
             //TODO: can add icon from this.props.categories[0].icon.prefix+"32"+this.props.categories[0].icon.suffix
-            //TODO: added role='button', but not functioning
             <div className='list-item' tabIndex='0' role='button' onClick={() => this.props.handleListItemClick(this.props)} onKeyPress={() => this.props.handleListItemClick(this.props)}>
               {this.props.name}
             </div>
