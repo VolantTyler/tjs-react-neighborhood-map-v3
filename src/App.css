@@ -31,9 +31,11 @@
   }
 }
 
-input#search {
-  width: 100%;
-  margin: 1rem;
+#search-input {
+  width: 325px;
+  max-width: 100%;
+  /* margin: 1rem; */
+  float: left;
 }
 
 
@@ -50,9 +52,13 @@ input#search {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding: 1rem;
 
+}
+
+.navbar-nav {
+  margin-top: .75rem;
 }
 
 .list-item {
