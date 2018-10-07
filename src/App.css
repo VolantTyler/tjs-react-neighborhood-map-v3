@@ -30,3 +30,35 @@
     transform: rotate(360deg);
   }
 }
+
+input#search {
+  width: 100%;
+  margin: 1rem;
+}
+
+
+.side-list {
+  /* from https://github.com/zaynaib/map/blob/master/src/App.css */
+  float:left;
+  width: 325px;
+  max-width: 100%;
+  z-index: 1;
+  height: 100vh;
+  background-color: #fff;
+  color:black;
+  
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding: 1rem;
+
+}
+
+.list-item {
+  list-style: none;
+  margin-top: 1rem;
+  padding: .5rem;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  cursor: pointer;
+}

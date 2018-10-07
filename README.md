@@ -1,3 +1,5 @@
+TODO: @Forrest reports that create-react-app handles the service worker, but that it will only "work" if the progrm is run with npm run build
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
