@@ -5,6 +5,7 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
+            // TODO: no query needed?
             query: '',
             venues: []
         }

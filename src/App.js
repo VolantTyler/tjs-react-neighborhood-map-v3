@@ -3,6 +3,7 @@ import './App.css';
 import Map from "./components/Map";
 import SquareAPI from "./API/";
 import NavBar from "./components/NavBar"
+import SideBar from "./components/SideBar"
 
 class App extends Component {
 
@@ -75,7 +76,7 @@ class App extends Component {
     const style = {
       //width: '100vw',
       height: '100vh',
-      top: '60px'
+      // top: '60px'
     }
 
     return (
@@ -84,6 +85,10 @@ class App extends Component {
           {...this.state}
           handleListItemClick={this.handleListItemClick}
            />
+        <SideBar 
+          {...this.state}
+          handleListItemClick={this.handleListItemClick}          
+        />
         <Map 
           style={style}
           {...this.state}

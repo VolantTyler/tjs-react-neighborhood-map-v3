@@ -61,6 +61,30 @@
   margin-top: .75rem;
 }
 
+/* TODO: sidebar occupies whole window, cannot interact with map while sidebar open */
+/* remove top: 60px from map, and set sidebar margin top to 60px: big looks good */
+/* but mobile map overlaps navbar 
+   Is solution to have Navbar be absolute/static/something to push everything else down?*/
+@media screen and (max-width: 480px){
+    .sidebar {
+    display: none;
+  }
+  .map-container {
+    margin-top:60px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .sidebar {
+    max-width: 25%;
+    min-width: 200px;
+    margin-top: 60px;
+  }
+}
+
+
 .list-item {
   list-style: none;
   margin-top: 1rem;
