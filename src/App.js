@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
-      center: [],
+      center: {lat: 40.979670, lng: -74.119180},
       zoom: 12,
       updateSuperState: obj => {
         this.setState(obj);
@@ -38,6 +38,9 @@ class App extends Component {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
         // console.log(newVenue);
+      })
+      .catch(error => {
+        console.log(error)
       });
   };
 
@@ -68,6 +71,9 @@ class App extends Component {
       });
       this.setState({ venues, center, markers });
       // console.log(results);
+    })
+    .catch(error => {
+      console.log(error)
     });
   }
 
