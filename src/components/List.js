@@ -22,6 +22,9 @@ class List extends React.Component {
 
       return (
             <div className='side-list' >
+                <sub>map: <a href='https://google.com/maps/' target='_blank'>Google </a></sub>
+                <sub>data: <a href='https://foursquare.com/' target='_blank'>Foursquare</a></sub>
+
                 {this.props.venues && this.props.venues.map((venue, idx) => 
                 <ListItem 
                     key={idx}

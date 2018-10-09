@@ -31,6 +31,10 @@
   }
 }
 
+h1 {
+  font-size: 1.5rem !important;
+}
+
 #search-input {
   width: 325px;
   max-width: 100%;
@@ -45,7 +49,7 @@
   width: 325px;
   max-width: 100%;
   z-index: 1;
-  height: 100vh;
+  height: calc(100vh - 90px);
   background-color: #fff;
   color:black;
   
@@ -61,10 +65,7 @@
   margin-top: .75rem;
 }
 
-/* TODO: sidebar occupies whole window, cannot interact with map while sidebar open */
-/* remove top: 60px from map, and set sidebar margin top to 60px: big looks good */
-/* but mobile map overlaps navbar 
-   Is solution to have Navbar be absolute/static/something to push everything else down?*/
+
 @media screen and (max-width: 480px){
     .sidebar {
     display: none;
