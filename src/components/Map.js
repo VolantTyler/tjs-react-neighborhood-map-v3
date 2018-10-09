@@ -25,7 +25,7 @@ const MyMapComponent = withScriptjs(withGoogleMap(props =>(
                     <React.Fragment>
                         <img src={`${venueInfo.bestPhoto.prefix}100x100${venueInfo.bestPhoto.suffix}`} alt={venueInfo.name}/>
                     <p><h1>{venueInfo.name}</h1></p>
-                    <p><a href={venueInfo.url} target='_blank'>website</a></p>
+                    <p><a href={venueInfo.url} target='_blank' rel='noopener noreferrer'>website</a></p>
 
                     </React.Fragment>
                 </InfoWindow>)}
