@@ -30,6 +30,7 @@ class List extends React.Component {
                     key={idx}
                     {...venue}
                     handleListItemClick={this.props.handleListItemClick}
+                    toggleNavbar={this.props.toggleNavbar}
                 />
                 )}
             </div>

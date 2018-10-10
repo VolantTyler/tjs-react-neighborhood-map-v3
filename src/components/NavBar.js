@@ -7,21 +7,20 @@ export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    // this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
+    //   collapsed: true,
       query: '',
       venues: []
     };
   }
 
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed
-      //TODO: close the list on escape
-      //TODO: when list item is clicked, invoke this to close navbar
-    });
-  }
+//   toggleNavbar() {
+//     this.setState({
+//       collapsed: !this.state.collapsed
+//       //TODO: when list item is clicked, invoke this to close navbar
+//     });
+//   }
 
     handleFilterVenues = () => {
         if (this.state.query.trim() !== "") {
@@ -55,8 +54,8 @@ export default class Example extends React.Component {
       <div>
         <Navbar color="faded" light fixed='top'>
           <NavbarBrand href="/" className="mr-auto">Burgers of Bergen County</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
+          <NavbarToggler onClick={this.props.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.props.collapsed} navbar>
             <Nav navbar>
                 <NavItem>
                     <input 
@@ -71,15 +70,9 @@ export default class Example extends React.Component {
                     {...this.props}
                     venues={this.handleFilterVenues()}
                     handleListItemClick = {this.props.handleListItemClick}
+                    toggleNavbar = {this.props.toggleNavbar}
                     />
                 </NavItem>
-
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

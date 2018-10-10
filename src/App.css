@@ -78,6 +78,9 @@ h1 {
   .navbar-toggler {
     display: none;
   }
+  .navbar-collapse {
+    display: none;
+  }
   .sidebar {
     max-width: 25%;
     min-width: 200px;

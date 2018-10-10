@@ -7,17 +7,25 @@ import SideBar from "./components/SideBar"
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       venues: [],
       markers: [],
+      collapsed: true,
       center: {lat: 40.979670, lng: -74.119180},
       zoom: 12,
       updateSuperState: obj => {
         this.setState(obj);
       }
     };
+  }
+
+  toggleNavbar = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+      //TODO: when list item is clicked, invoke this to close navbar
+    });
   }
 
   closeAllMarkers = () => {
@@ -44,9 +52,15 @@ class App extends Component {
       });
   };
 
+  // handleListItemClick = listItem => {
+  //   const marker = this.state.markers.find(marker => marker.id === listItem.id);
+  //   this.handleMarkerClick(marker);
+  // }
+
   handleListItemClick = listItem => {
     const marker = this.state.markers.find(marker => marker.id === listItem.id);
     this.handleMarkerClick(marker);
+    this.toggleNavbar();
   }
 
   componentDidMount() {
@@ -90,6 +104,7 @@ class App extends Component {
         <NavBar 
           {...this.state}
           handleListItemClick={this.handleListItemClick}
+          toggleNavbar={this.toggleNavbar}
            />
         <SideBar 
           {...this.state}
