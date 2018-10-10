@@ -50,9 +50,9 @@ class App extends Component {
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
         // console.log(newVenue);
       })
-      .catch(error => {
-        this.setState({errorInfo: error});
-        console.log(error);
+      .catch(er => {
+        this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
+        console.log(er);
       });
   };
 
@@ -90,9 +90,9 @@ class App extends Component {
       this.setState({ venues, center, markers });
       // console.log(results);
     })
-    .catch(error => {
-      this.setState({errorInfo: error});
-      console.log(error)
+    .catch(er => {
+      this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
+      console.log(er)
     });
   }
 
@@ -115,8 +115,7 @@ class App extends Component {
           {...this.state}
           handleListItemClick={this.handleListItemClick}          
         />
-        <ErrorBoundary {...this.state}
->
+        <ErrorBoundary {...this.state}>
         <Map 
           style={style}
           {...this.state}

@@ -19,6 +19,7 @@ export default class SideBar extends React.Component {
                 );
             if (venues.length === 0) {
                 window.alert('No matches found');
+                // this.props.updateSuperState({error: 'No match found'});
                 return venues;
             } else {
             return venues;
