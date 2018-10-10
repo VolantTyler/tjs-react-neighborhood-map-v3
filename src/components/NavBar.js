@@ -27,7 +27,12 @@ export default class Example extends React.Component {
             const venues = this.props.venues.filter(venue =>
                 venue.name.toLowerCase().includes(this.state.query.toLowerCase())
                 );
+            if (venues.length === 0) {
+                window.alert('No matches found');
+                return venues;
+            } else {
             return venues;
+                }
         }
         return this.props.venues;
     }

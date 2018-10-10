@@ -7,7 +7,7 @@ export default class SideBar extends React.Component {
 
     this.state = {
       query: '',
-      venues: []
+      venues: [],
     };
   }
 
@@ -16,7 +16,12 @@ export default class SideBar extends React.Component {
             const venues = this.props.venues.filter(venue =>
                 venue.name.toLowerCase().includes(this.state.query.toLowerCase())
                 );
+            if (venues.length === 0) {
+                window.alert('No matches found');
+                return venues;
+            } else {
             return venues;
+                }
         }
         return this.props.venues;
     }
@@ -39,6 +44,7 @@ export default class SideBar extends React.Component {
 
 
   render() {
+
     return (
       <div className="sidebar">
 
@@ -47,6 +53,7 @@ export default class SideBar extends React.Component {
         type={"search"} 
         placeholder='Search Here'
         onChange={this.handleChange}/>
+
 
         <List 
         {...this.props}
