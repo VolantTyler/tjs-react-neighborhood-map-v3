@@ -4,6 +4,7 @@ import Map from "./components/Map";
 import SquareAPI from "./API/";
 import NavBar from "./components/NavBar"
 import SideBar from "./components/SideBar"
+import ErrorBoundary from "./components/ErrorBoundary"
 
 class App extends Component {
 
@@ -13,6 +14,8 @@ class App extends Component {
       venues: [],
       markers: [],
       collapsed: true,
+      error: '',
+      errorInfo: '',
       center: {lat: 40.979670, lng: -74.119180},
       zoom: 12,
       updateSuperState: obj => {
@@ -48,7 +51,8 @@ class App extends Component {
         // console.log(newVenue);
       })
       .catch(error => {
-        console.log(error)
+        this.setState({errorInfo: error});
+        console.log(error);
       });
   };
 
@@ -87,6 +91,7 @@ class App extends Component {
       // console.log(results);
     })
     .catch(error => {
+      this.setState({errorInfo: error});
       console.log(error)
     });
   }
@@ -110,11 +115,14 @@ class App extends Component {
           {...this.state}
           handleListItemClick={this.handleListItemClick}          
         />
+        <ErrorBoundary {...this.state}
+>
         <Map 
           style={style}
           {...this.state}
           handleMarkerClick = {this.handleMarkerClick}
         />
+        </ErrorBoundary>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './List'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import ErrorBoundary from './ErrorBoundary';
 
 //TODO: why is the named Example? change to NavBar test impatc
 export default class Example extends React.Component {
@@ -71,12 +72,14 @@ export default class Example extends React.Component {
                 </NavItem>
 
                 <NavItem>
-                    <List 
-                    {...this.props}
-                    venues={this.handleFilterVenues()}
-                    handleListItemClick = {this.props.handleListItemClick}
-                    toggleNavbar = {this.props.toggleNavbar}
-                    />
+                    <ErrorBoundary>
+                        <List 
+                        {...this.props}
+                        venues={this.handleFilterVenues()}
+                        handleListItemClick = {this.props.handleListItemClick}
+                        toggleNavbar = {this.props.toggleNavbar}
+                        />
+                    </ErrorBoundary>
                 </NavItem>
             </Nav>
           </Collapse>
