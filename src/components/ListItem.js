@@ -17,7 +17,9 @@ class ListItem extends Component {
             // </li>
             //TODO: can add icon from this.props.categories[0].icon.prefix+"32"+this.props.categories[0].icon.suffix
             <div className='list-item' tabIndex='0' role='button' onClick={() => this.props.handleListItemClick(this.props)} onKeyPress={() => this.props.handleListItemClick(this.props)}>
-              {this.props.name}
+              <h1>{this.props.name}</h1>
+              <p>{this.props.location.address}</p> 
+              <p>{this.props.location.city} {this.props.location.state}</p>
             </div>
         )
     }

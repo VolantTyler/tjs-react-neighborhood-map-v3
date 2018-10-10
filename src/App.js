@@ -3,20 +3,29 @@ import './App.css';
 import Map from "./components/Map";
 import SquareAPI from "./API/";
 import NavBar from "./components/NavBar"
+import SideBar from "./components/SideBar"
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       venues: [],
       markers: [],
-      center: [],
+      collapsed: true,
+      center: {lat: 40.979670, lng: -74.119180},
       zoom: 12,
       updateSuperState: obj => {
         this.setState(obj);
       }
     };
+  }
+
+  toggleNavbar = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+      //TODO: when list item is clicked, invoke this to close navbar
+    });
   }
 
   closeAllMarkers = () => {
@@ -37,12 +46,21 @@ class App extends Component {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
         // console.log(newVenue);
+      })
+      .catch(error => {
+        console.log(error)
       });
   };
+
+  // handleListItemClick = listItem => {
+  //   const marker = this.state.markers.find(marker => marker.id === listItem.id);
+  //   this.handleMarkerClick(marker);
+  // }
 
   handleListItemClick = listItem => {
     const marker = this.state.markers.find(marker => marker.id === listItem.id);
     this.handleMarkerClick(marker);
+    this.toggleNavbar();
   }
 
   componentDidMount() {
@@ -67,6 +85,9 @@ class App extends Component {
       });
       this.setState({ venues, center, markers });
       // console.log(results);
+    })
+    .catch(error => {
+      console.log(error)
     });
   }
 
@@ -75,7 +96,7 @@ class App extends Component {
     const style = {
       //width: '100vw',
       height: '100vh',
-      top: '60px'
+      // top: '60px'
     }
 
     return (
@@ -83,7 +104,12 @@ class App extends Component {
         <NavBar 
           {...this.state}
           handleListItemClick={this.handleListItemClick}
+          toggleNavbar={this.toggleNavbar}
            />
+        <SideBar 
+          {...this.state}
+          handleListItemClick={this.handleListItemClick}          
+        />
         <Map 
           style={style}
           {...this.state}

@@ -31,9 +31,15 @@
   }
 }
 
-input#search {
-  width: 100%;
-  margin: 1rem;
+h1 {
+  font-size: 1.5rem !important;
+}
+
+#search-input {
+  width: 325px;
+  max-width: 100%;
+  /* margin: 1rem; */
+  float: left;
 }
 
 
@@ -43,17 +49,45 @@ input#search {
   width: 325px;
   max-width: 100%;
   z-index: 1;
-  height: 100vh;
+  height: calc(100vh - 90px);
   background-color: #fff;
   color:black;
   
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding: 1rem;
 
 }
+
+.navbar-nav {
+  margin-top: .75rem;
+}
+
+
+@media screen and (max-width: 480px){
+    .sidebar {
+    display: none;
+  }
+  .map-container {
+    margin-top:60px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar-collapse {
+    display: none;
+  }
+  .sidebar {
+    max-width: 25%;
+    min-width: 200px;
+    margin-top: 60px;
+  }
+}
+
 
 .list-item {
   list-style: none;

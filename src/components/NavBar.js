@@ -2,25 +2,25 @@ import React from 'react';
 import List from './List'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
+//TODO: why is the named Example? change to NavBar test impatc
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    // this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
+    //   collapsed: true,
       query: '',
       venues: []
     };
   }
 
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed
-      //TODO: close the list on escape
-      //TODO: when list item is clicked, invoke this to close navbar
-    });
-  }
+//   toggleNavbar() {
+//     this.setState({
+//       collapsed: !this.state.collapsed
+//       //TODO: when list item is clicked, invoke this to close navbar
+//     });
+//   }
 
     handleFilterVenues = () => {
         if (this.state.query.trim() !== "") {
@@ -53,26 +53,26 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="faded" light fixed='top'>
-          <NavbarBrand href="/" className="mr-auto">Neighborhood Map</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
+          <NavbarBrand href="/" className="mr-auto">Burgers of Bergen County</NavbarBrand>
+          <NavbarToggler onClick={this.props.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.props.collapsed} navbar>
             <Nav navbar>
-                <input 
+                <NavItem>
+                    <input 
                     id={'search-input'} 
                     type={"search"} 
                     placeholder='Search Here'
                     onChange={this.handleChange}/>
-                <List 
-                {...this.props}
-                venues={this.handleFilterVenues()}
-                handleListItemClick = {this.props.handleListItemClick}
-                />
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
+                </NavItem>
+
+                <NavItem>
+                    <List 
+                    {...this.props}
+                    venues={this.handleFilterVenues()}
+                    handleListItemClick = {this.props.handleListItemClick}
+                    toggleNavbar = {this.props.toggleNavbar}
+                    />
+                </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
