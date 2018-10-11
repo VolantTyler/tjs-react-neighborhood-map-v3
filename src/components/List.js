@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ListItem from './ListItem'
 
 class List extends React.Component {
@@ -14,10 +14,10 @@ class List extends React.Component {
 
 
     render() {
-        const style = {
-            width: '20vw',
-            height: '100vh'
-          }
+        // const style = {
+        //     width: '20vw',
+        //     height: '100vh'
+        //   }
 
 
       return (

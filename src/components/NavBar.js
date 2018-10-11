@@ -1,6 +1,6 @@
 import React from 'react';
 import List from './List'
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
 //TODO: why is the named Example? change to NavBar test impatc
 export default class Example extends React.Component {
