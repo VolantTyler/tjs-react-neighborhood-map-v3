@@ -34,8 +34,12 @@ class Helper {
         };
         return fetch(
             `${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(urlParams)}`,
-            requestData
-            ).then(res => res.json())
+            requestData)
+            .then(res => res.json())
+            .catch(error => {
+                window.alert('Error fetching Foursquare data: '+error);
+                console.log(error);
+            })
     }
 }
 
