@@ -1,6 +1,5 @@
 import React from 'react';
 import List from './List'
-import ErrorBoundary from './ErrorBoundary';
 
 export default class SideBar extends React.Component {
   constructor(props) {
@@ -56,13 +55,11 @@ export default class SideBar extends React.Component {
         placeholder='Search Here'
         onChange={this.handleChange}/>
 
-        <ErrorBoundary>
             <List 
             {...this.props}
             venues={this.handleFilterVenues()}
             handleListItemClick = {this.props.handleListItemClick}
             />
-        </ErrorBoundary>
 
       </div>
     );
