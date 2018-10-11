@@ -3,18 +3,14 @@ import React from 'react';
 
 
 class ErrorBoundary extends React.Component {
-    // constructor(props) {
-    //   super(props);
-    //   this.state = { error: null, errorInfo: null };
-    // }
     
     componentDidCatch(error, errorInfo) {
       // Catch errors in any components below and re-render with error message
+      //updateSuperState is used to set the state of App.js, no matter where ErrorBoundary is used
       this.props.updateSuperState({
         error: error,
         errorInfo: errorInfo
       })
-      // You can also log error messages to an error reporting service here
     }
     
     render() {

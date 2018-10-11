@@ -5,8 +5,6 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
-            // TODO: no query needed?
-            query: '',
             venues: []
         }
     }
@@ -14,11 +12,6 @@ class List extends React.Component {
 
 
     render() {
-        // const style = {
-        //     width: '20vw',
-        //     height: '100vh'
-        //   }
-
 
       return (
             <div className='side-list' >

@@ -6,7 +6,6 @@ import Map from "./components/Map";
 import SquareAPI from "./API/";
 import NavBar from "./components/NavBar"
 import SideBar from "./components/SideBar"
-// import ErrorBoundary from "./components/ErrorBoundary"
 
 class App extends Component {
 
@@ -19,7 +18,8 @@ class App extends Component {
       error: '',
       errorInfo: '',
       center: {lat: 40.979670, lng: -74.119180},
-      zoom: 11,
+      zoom: 12,
+      //Below is a method for child components to update the state of App.js
       updateSuperState: obj => {
         this.setState(obj);
       }
@@ -29,7 +29,6 @@ class App extends Component {
   toggleNavbar = () => {
     this.setState({
       collapsed: !this.state.collapsed
-      //TODO: when list item is clicked, invoke this to close navbar
     });
   }
 
@@ -40,6 +39,7 @@ class App extends Component {
     })
     this.setState({markers: Object.assign(this.state.markers, markers)});
   }
+  //When marker is clicked, open info window
   handleMarkerClick = marker => {
     this.closeAllMarkers();
     marker.isOpen = true;
@@ -56,7 +56,6 @@ class App extends Component {
         .then(res => {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
-        // console.log(newVenue);
       })
       .catch(er => {
         this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
@@ -64,25 +63,21 @@ class App extends Component {
       });
   };
 
-  // handleListItemClick = listItem => {
-  //   const marker = this.state.markers.find(marker => marker.id === listItem.id);
-  //   this.handleMarkerClick(marker);
-  // }
-
   handleListItemClick = listItem => {
     const marker = this.state.markers.find(marker => marker.id === listItem.id);
     this.handleMarkerClick(marker);
+    //On mobile, clicking a list item collapses the dynamic navbar
     this.toggleNavbar();
   }
 
   componentDidMount() {
+    //Google error handling
     window.gm_authFailure = this.gm_authFailure;
 
     SquareAPI.search({
       near: "Ridgewood, NJ",
       query: "burger",
       limit: 10,
-      // intent: "browse",
       radius: 5000
     })
     .then(results => {
@@ -99,7 +94,6 @@ class App extends Component {
         };
       });
       this.setState({ venues, center, markers });
-      console.log(venues);
     })
     .catch(er => {
       this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
@@ -111,12 +105,12 @@ class App extends Component {
     window.alert("Google Maps error!")
   }
 
+
+
   render() {
 
     const style = {
-      //width: '100vw',
       height: '100vh',
-      // top: '60px'
     }
 
     return (
@@ -130,13 +124,11 @@ class App extends Component {
           {...this.state}
           handleListItemClick={this.handleListItemClick}          
         />
-        {/* <ErrorBoundary {...this.state}> */}
         <Map 
           style={style}
           {...this.state}
           handleMarkerClick = {this.handleMarkerClick}
         />
-        {/* </ErrorBoundary> */}
       </div>
     );
   }
