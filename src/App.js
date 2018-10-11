@@ -47,7 +47,13 @@ class App extends Component {
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     
     SquareAPI.getVenueDetails(marker.id)
-      .then(res => {
+      // .then(res => {
+      //   if(res.ok){
+      //     return res;
+      //     }else {
+      //     return Promise.reject(new Error('Foursquare daily quota reached. Try again tomorrow'));
+      //   }})
+        .then(res => {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
         // console.log(newVenue);
@@ -75,9 +81,9 @@ class App extends Component {
     SquareAPI.search({
       near: "Ridgewood, NJ",
       query: "burger",
-      limit: 20,
+      limit: 10,
       // intent: "browse",
-      // radius: 250
+      radius: 5000
     })
     .then(results => {
       const {venues} = results.response;
@@ -86,13 +92,14 @@ class App extends Component {
         return {
           lat: venue.location.lat,
           lng: venue.location.lng,
+          title: venue.name,
           isOpen: false,
           isVisible: true,
           id: venue.id
         };
       });
       this.setState({ venues, center, markers });
-      // console.log(results);
+      console.log(venues);
     })
     .catch(er => {
       this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});

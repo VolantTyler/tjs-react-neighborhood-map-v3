@@ -17,6 +17,7 @@ const MyMapComponent = withScriptjs(withGoogleMap(props =>(
                 return (
                     <Marker 
                         key={idx}
+                        title={marker.title}
                         position={{ lat: marker.lat, lng: marker.lng }} 
                         onClick={() => props.handleMarkerClick(marker)}
                         animation={arr.length === 1 ? window.google.maps.Animation.BOUNCE : window.google.maps.Animation.DROP}

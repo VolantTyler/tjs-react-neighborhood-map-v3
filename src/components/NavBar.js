@@ -2,7 +2,7 @@ import React from 'react';
 import List from './List'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
-//TODO: why is the named Example? change to NavBar test impatc
+//TODO: why is this named Example? change to NavBar, test impact
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
