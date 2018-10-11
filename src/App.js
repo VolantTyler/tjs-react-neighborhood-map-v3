@@ -57,9 +57,10 @@ class App extends Component {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
       })
-      .catch(er => {
-        this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
-        console.log(er);
+      .catch(error => {
+        // this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
+        window.alert('Error 1');
+        console.log(error);
       });
   };
 
@@ -95,9 +96,10 @@ class App extends Component {
       });
       this.setState({ venues, center, markers });
     })
-    .catch(er => {
-      this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
-      console.log(er)
+    .catch(error => {
+      // this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
+      window.alert('Error 2');
+      console.log(error);
     });
   }
 
