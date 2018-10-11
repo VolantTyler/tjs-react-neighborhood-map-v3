@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import ErrorBoundary from "./ErrorBoundary";
 
 const MyMapComponent = withScriptjs(withGoogleMap(props =>(
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={11}
     zoom={props.zoom}
     defaultCenter={{ lat: 40.979670, lng: -74.119180 }}
     center={props.center}
@@ -39,6 +40,7 @@ const MyMapComponent = withScriptjs(withGoogleMap(props =>(
 export default class Map extends Component {
     render() {
 
+        //TODO: remove style
         const style = {
             //width: '100vw',
             height: '100vh',
@@ -46,7 +48,8 @@ export default class Map extends Component {
           }
 
         return (
-            <div className='map-container'>
+            <div className='map-container' role='application'>
+            <ErrorBoundary {...this.props}>
             <MyMapComponent
                 {...this.props}
                 style={style}
@@ -57,6 +60,7 @@ export default class Map extends Component {
                 // above originally 400px, added top:60px below and above
                 mapElement={<div style={{ height: `100%`}} />}
             />
+            </ErrorBoundary>
             </div>
         )
     }
