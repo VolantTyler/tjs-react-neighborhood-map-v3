@@ -1,3 +1,5 @@
+//resource: gm_authFailure implementation https://github.com/zaynaib/map/blob/master/src/App.js
+
 import React, { Component } from 'react';
 import './App.css';
 import Map from "./components/Map";
@@ -68,6 +70,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    window.gm_authFailure = this.gm_authFailure;
+
     SquareAPI.search({
       near: "Ridgewood, NJ",
       query: "burger",
@@ -94,6 +98,10 @@ class App extends Component {
       this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
       console.log(er)
     });
+  }
+
+  gm_authFailure(){
+    window.alert("Google Maps error!")
   }
 
   render() {
