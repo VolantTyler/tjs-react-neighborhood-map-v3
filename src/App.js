@@ -59,7 +59,7 @@ class App extends Component {
       })
       .catch(error => {
         // this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
-        window.alert('Error 1');
+        window.alert('Error getting information for this venue: '+error.message);
         console.log(error);
       });
   };
@@ -97,14 +97,13 @@ class App extends Component {
       this.setState({ venues, center, markers });
     })
     .catch(error => {
-      // this.setState({errorInfo: er, error: 'Failed to get Google Maps data'});
-      window.alert('Error 2');
+      window.alert('Error getting data from Foursquare: '+error.message);
       console.log(error);
-    });
-  }
+    })
+  ;}
 
   gm_authFailure(){
-    window.alert("Google Maps error!")
+    window.alert("Error getting data from Google Maps")
   }
 
 
