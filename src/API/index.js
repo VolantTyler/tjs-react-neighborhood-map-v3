@@ -34,8 +34,20 @@ class Helper {
         };
         return fetch(
             `${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(urlParams)}`,
-            requestData
-            ).then(res => res.json())
+            requestData)
+            .then(res => {
+                if (res.status === 429) {
+                  return Promise.reject(new Error('Foursquare daily quota reached. Try again tomorrow.'));
+                } else {
+                  return res;
+                }
+              })
+            .then(res => res.json())
+            //TODO: error handling not properly tested
+            .catch(error => {
+                window.alert('Error fetching Foursquare data: '+error.message);
+                console.log(error);
+            })
     }
 }
 

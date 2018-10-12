@@ -1,36 +1,36 @@
 import React from 'react';
 import List from './List'
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
-//TODO: why is the named Example? change to NavBar test impatc
+//TODO: why is this named Example? change to NavBar, test impact
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-    //   collapsed: true,
       query: '',
       venues: []
     };
   }
 
-//   toggleNavbar() {
-//     this.setState({
-//       collapsed: !this.state.collapsed
-//       //TODO: when list item is clicked, invoke this to close navbar
-//     });
-//   }
-
     handleFilterVenues = () => {
+        //If search field is not blank, check query against venue list
         if (this.state.query.trim() !== "") {
             const venues = this.props.venues.filter(venue =>
                 venue.name.toLowerCase().includes(this.state.query.toLowerCase())
                 );
+            //If no venues math search query, notify user
+            if (venues.length === 0) {
+                window.alert('No matches found');
+                return venues;
+            } else {
             return venues;
+                }
         }
+        //If search field IS blank, show all venues, default state
         return this.props.venues;
     }
+    //Search field also updates markers on map
   handleChange = e => {
     this.setState({query:e.target.value});
     const markers = this.props.venues.map(venue => {
