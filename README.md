@@ -35,7 +35,7 @@ To run the program locally on your computer (requires Internet connection, JavaS
 
 ## Reviewer Notes
 
-- Service worker: Consensus among students was that the service worker packaged with `create-react-app` will function properly with no intervention from the student or reviewer, when the app is started with `npm run build` NOT `npm start`
+- Service worker: Consensus among students was that the service worker packaged with `create-react-app` will function properly with no intervention from the student or reviewer, when the app is started with `npm run build` (NOT `npm start`), then `serve -s build` and finally `navigate to localhost:5000`
 
 
 ## Resources
