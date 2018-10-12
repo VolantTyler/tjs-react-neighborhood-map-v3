@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import ErrorBoundary from "./ErrorBoundary";
+import missing from "./missing-small.jpg"
 
 const MyMapComponent = withScriptjs(withGoogleMap(props =>(
 //   Build map
@@ -25,10 +26,11 @@ const MyMapComponent = withScriptjs(withGoogleMap(props =>(
                         animation={arr.length === 1 ? window.google.maps.Animation.BOUNCE : window.google.maps.Animation.DROP}
                     >
                 {/* Build info windows */}
-                {marker.isOpen && venueInfo.bestPhoto && (
+                {marker.isOpen && (
                 <InfoWindow>
                     <React.Fragment>
-                        <img src={`${venueInfo.bestPhoto.prefix}100x100${venueInfo.bestPhoto.suffix}`} alt={venueInfo.name}/>
+                        {/* Display venue image, if available, or placeholder image, if not */}
+                        <img src={venueInfo.bestPhoto ? `${venueInfo.bestPhoto.prefix}100x100${venueInfo.bestPhoto.suffix}`: missing} alt={venueInfo.name}/>
                     <h1>{venueInfo.name}</h1>
                     <p><a href={venueInfo.url} target='_blank' rel='noopener noreferrer'>website</a></p>
 
