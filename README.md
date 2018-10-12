@@ -11,11 +11,6 @@ React Neighborhood Map App: Burgers of Bergen "BoB": Udacity Front End Web Devel
 - [How To Run](#how-to-run)
 - [Reviewer Notes](#reviewer-notes)
 - [Resources](#resources)
-- [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
 
 
 ## Purpose
@@ -29,8 +24,9 @@ The resulting single page app is a searchable list of burger joints in Bergen Co
 
 To run the program locally on your computer (requires Internet connection, JavaScript, HTML, CSS, local server, npm):
 1. Download the repository from GitHub
-2. In Command Prompt (Windows) or Terminal (Mac) or similar, cd: to directory where repository was downloaded
+2. In Command Prompt (Windows) or Terminal (Mac) or similar, `cd:` to directory where repository was downloaded
 3. Run `npm install` and `npm run build` to create local server
+4. Run `serve -s build` and finally `navigate to localhost:5000` to view the app
 
 
 ## Reviewer Notes
