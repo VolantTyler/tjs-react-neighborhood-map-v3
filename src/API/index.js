@@ -43,7 +43,6 @@ class Helper {
                 }
               })
             .then(res => res.json())
-            //TODO: error handling not properly tested
             .catch(error => {
                 window.alert('Error fetching Foursquare data: '+error.message);
                 console.log(error);

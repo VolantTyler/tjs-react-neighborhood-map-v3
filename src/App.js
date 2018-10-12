@@ -47,18 +47,11 @@ class App extends Component {
     const venue = this.state.venues.find(venue => venue.id === marker.id);
     
     SquareAPI.getVenueDetails(marker.id)
-      // .then(res => {
-      //   if(res.ok){
-      //     return res;
-      //     }else {
-      //     return Promise.reject(new Error('Foursquare daily quota reached. Try again tomorrow'));
-      //   }})
         .then(res => {
         const newVenue = Object.assign(venue, res.response.venue);
         this.setState({ venues: Object.assign(this.state.venues, newVenue)});
       })
       .catch(error => {
-        // this.setState({errorInfo: er, error: 'Failed to get Foursquare details for info-window'});
         window.alert('Error getting information for this venue: '+error.message);
         console.log(error);
       });
