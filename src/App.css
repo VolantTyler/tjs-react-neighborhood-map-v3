@@ -64,6 +64,13 @@ h1 {
   }
 }
 
+.infoWindowTitle {
+  white-space: wrap;
+  overflow: hidden;
+  /* text-overflow: wrap; */
+  max-width: 200px;
+}
+
 
 .list-item {
   list-style: none;
