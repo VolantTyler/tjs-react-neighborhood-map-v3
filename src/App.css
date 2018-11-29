@@ -50,9 +50,9 @@ h1 {
     .sidebar {
     display: none;
   }
-  .map-container {
+  /* .map-container {
     margin-top:60px;
-  }
+  } */
 }
 /* Display only static sidebar list on larger screens, do not display toggle button */
 @media screen and (min-width: 481px) {
