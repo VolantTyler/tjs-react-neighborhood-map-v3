@@ -7,6 +7,14 @@ h1 {
   font-size: 1.5rem !important;
 }
 
+a {
+  color: #F0F4F8;
+}
+
+nav {
+  color: #F0F4F8;
+}
+
 .map-container {
   background-color: #ECEBEA;
   height: calc(100vh - 60px);
@@ -31,8 +39,8 @@ h1 {
   max-width: 100%;
   z-index: 1;
   height: calc(100vh - 60px);
-  background-color: #fff;
-  color:black;
+  background-color: #334e67;
+  color: #F0F4F8;
   
     top: 0;
     left: 0;
@@ -41,8 +49,25 @@ h1 {
 
 }
 
+.navbar {
+  background-color: #334e67;
+  color: #F0F4F8;
+}
+
+.navbar-light {
+  background-color: #334e67;
+  color: #F0F4F8;
+}
+
+.navbar-light .navbar-brand {
+  background-color: #334e67;
+  color: #F0F4F8 !important;
+}
+
 .navbar-nav {
   margin-top: .75rem;
+  background-color: #334e67;
+  color: #F0F4F8;
 }
 
 /* Display only dynamic navbar list on mobile, with toggle button */
@@ -66,6 +91,8 @@ h1 {
     max-width: 25%;
     min-width: 200px;
     /* margin-top: 60px; */
+    background-color: #334e67;
+    color: #F0F4F8;
   }
 }
 
@@ -84,6 +111,9 @@ h1 {
   padding: .5rem;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
   cursor: pointer;
+  background-color: #334e67;
+  color: #F0F4F8;
+  border-left: 2px solid #F0F4F8;
 }
 
 .error {
